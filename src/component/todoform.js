@@ -1,7 +1,13 @@
+import "../styles/todoform.css"
 import React from 'react'
 
-export const todoform = () => {
+const Todoform = (props) => {
   return (
-    <div>todoform</div>
-  )
-}
+     <div className='form-input'>
+      <label> Input </label>
+      <input placeholder={props.placeholder}/>
+    </div>
+    );
+};
+
+export default Todoform;
