@@ -1,13 +1,26 @@
-import "../styles/todoform.css"
-import React from 'react'
+import React, { useState } from "react";
 
-const Todoform = (props) => {
+export const TodoForm = ({ addTodo }) => {
+  const [value, setValue] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    addTodo(value);
+
+    setValue("");
+  };
   return (
-     <div className='form-input'>
-      <label> Input </label>
-      <input placeholder={props.placeholder}/>
-    </div>
-    );
+    <form className="TodoForm" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="todo-input"
+        value={value}
+        placeholder="What should we do today ?"
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <button type="submit" className="todo-btn">
+        submit
+      </button>
+    </form>
+  );
 };
-
-export default Todoform;
