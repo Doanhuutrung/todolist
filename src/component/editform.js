@@ -4,7 +4,7 @@ export const EditTodoForm = ({editTodo, task}) => {
     const [value, setValue] = useState(task.task);
 
     const handleSubmit = (e) => {
-      // prevent default action
+      // chặn sự kiện xảy ra
         e.preventDefault();
         // edit todo
         editTodo(value, task.id);

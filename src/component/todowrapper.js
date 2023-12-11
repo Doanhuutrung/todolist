@@ -11,23 +11,23 @@ export const TodoWrapper = () => {
     console.log(todos);
   };
 
-  const editTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todos, isEditing: !todo.isEditing } : todo
-      )
-    );
-  };
+  // const editTodo = (id) => {
+  //   setTodos(
+  //     todos.map((todo) =>
+  //       todo.id === id ? { ...todos, isEditing: !todo.isEditing } : todo
+  //     )
+  //   );
+  // };
 
-  const editTask = (task, id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-      )
-    );
-  };
+  // const editTask = (task, id) => {
+  //   setTodos(
+  //     todos.map((todo) =>
+  //       todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
+  //     )
+  //   );
+  // };
 
-  const toggleCompleted = (id) => {
+  const toggleComplete = (id) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -37,18 +37,20 @@ export const TodoWrapper = () => {
 
   return (
     <div className="TodoWrapper">
-      <h1>Get Things Done !</h1>
+      <h1> Work hard, sleep hard !</h1>
       <TodoForm addTodo={addTodo} />
       {/* display todos */}
       {todos.map((todo) =>
         todo.isEditing ? (
           <EditTodoForm
-            editTodo={editTask}
+            // editTodo={editTask}
             task={todo}
-            toggleCompleted={toggleCompleted}
           />
         ) : (
-          <Todo key={todo.id} task={todo} editTodo={editTodo} />
+          <Todo key={todo.id} 
+          task={todo} 
+          toggleComplete={toggleComplete} 
+          />
         )
       )}
     </div>
