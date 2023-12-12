@@ -1,4 +1,3 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import React, { useState } from "react";
 
 export const TodoForm = ({ addTodo }) => {
