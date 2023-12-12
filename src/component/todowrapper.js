@@ -5,27 +5,28 @@ import { EditTodoForm } from "./editform";
 
 export const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
+  const id = Math.random().toString(20).substring(0,9);
 
   const addTodo = (todo) => {
-    setTodos([...todos, { task: todo }]);
+    setTodos([...todos, { id: id, task: todo,  }]);
     console.log(todos);
   };
 
-  // const editTodo = (id) => {
-  //   setTodos(
-  //     todos.map((todo) =>
-  //       todo.id === id ? { ...todos, isEditing: !todo.isEditing } : todo
-  //     )
-  //   );
-  // };
+  const editTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todos, isEditing: !todo.isEditing } : todo
+      )
+    );
+  };
 
-  // const editTask = (task, id) => {
-  //   setTodos(
-  //     todos.map((todo) =>
-  //       todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-  //     )
-  //   );
-  // };
+  const editTask = (task, id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
+      )
+    );
+  };
 
   const toggleComplete = (id) => {
     setTodos(
@@ -43,13 +44,14 @@ export const TodoWrapper = () => {
       {todos.map((todo) =>
         todo.isEditing ? (
           <EditTodoForm
-            // editTodo={editTask}
+            editTodo={editTask}
             task={todo}
           />
         ) : (
           <Todo key={todo.id} 
           task={todo} 
-          toggleComplete={toggleComplete} 
+          toggleComplete={toggleComplete}
+          editTodo = {editTodo}
           />
         )
       )}

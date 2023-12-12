@@ -1,3 +1,4 @@
+import { text } from "@fortawesome/fontawesome-svg-core";
 import React, { useState } from "react";
 
 export const TodoForm = ({ addTodo }) => {
@@ -22,6 +23,7 @@ export const TodoForm = ({ addTodo }) => {
         onChange={(e) => setValue(e.target.value)}
         className="todo-input"
         placeholder="What is the task today?"
+        required
       />
       <button type="submit" className="todo-btn">
         Add Task
