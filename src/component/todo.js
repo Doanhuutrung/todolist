@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export const Todo = ({ task, toggleComplete, editTodo,deleteTodo }) => {
+export const Todo = ({ task, toggleComplete, editTodo,deleteTodo}) => {
   return (
     <div className="Todo">
       <p
